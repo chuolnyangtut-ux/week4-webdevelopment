@@ -1,0 +1,372 @@
+/* ==========================================================================
+SpendWise Dashboard Shell - Visual Stylesheet
+========================================================================== */
+​/* --------------------------------------------------------------------------
+​Theme Configuration using CSS Custom Properties (:root)
+-------------------------------------------------------------------------- /
+:root {
+/ Brand & Accent Colors /
+--color-brand: #0d9488;          / Teal Brand Color /
+--color-brand-hover: #0f766e;    / Darker Teal /
+--color-accent: #6366f1;         / Indigo Accent */
+​/* Surface & Background Colors /
+--color-bg: #f8fafc;             / Main Page Background /
+--color-surface: #ffffff;        / Card & Sidebar Background /
+--color-surface-hover: #f1f5f9;  / Subtle hover tint /
+--color-border: #e2e8f0;         / Card & Section Borders */
+​/* Text Colors /
+--color-text-primary: #0f172a;   / Deep Slate /
+--color-text-secondary: #64748b; / Muted Slate */
+​/* Status Colors /
+--color-status-ok: #16a34a;      / Green /
+--color-status-warning: #ea580c; / Orange /
+--color-status-success: #0284c7; / Sky Blue */
+​/* Typography Fonts */
+--font-heading: 'Poppins', sans-serif;
+--font-body: 'Inter', sans-serif;
+​/* Shadow Variables */
+--shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+--shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+--shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
+​/* Border Radius */
+--radius-card: 14px;
+--radius-btn: 8px;
+}
+​/* --------------------------------------------------------------------------
+Stretch Goal: Dark Theme (Automatic color scheme system detection)
+-------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+:root {
+--color-brand: #14b8a6;
+--color-brand-hover: #2dd4bf;
+--color-accent: #818cf8;
+​--color-bg: #0f172a;
+--color-surface: #1e293b;
+--color-surface-hover: #334155;
+--color-border: #334155;
+​--color-text-primary: #f8fafc;
+--color-text-secondary: #94a3b8;
+​--shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+--shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+--shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+}
+}
+​/* --------------------------------------------------------------------------
+2. Global Resets
+-------------------------------------------------------------------------- */
+​{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+​body {
+background-color: var(--color-bg);
+color: var(--color-text-primary);
+font-family: var(--font-body);
+line-height: 1.5;
+min-height: 100vh;
+}
+​h1, h2, h3 {
+font-family: var(--font-heading);
+color: var(--color-text-primary);
+}
+​/* --------------------------------------------------------------------------
+3. Page Layout: CSS Grid (Desktop Layout)
+-------------------------------------------------------------------------- */
+.dashboard-container {
+display: grid;
+grid-template-columns: 260px 1fr;
+grid-template-rows: auto 1fr;
+grid-template-areas:
+"sidebar header"
+"sidebar main";
+min-height: 100vh;
+}
+​/* --------------------------------------------------------------------------
+4. Sidebar Component (Flexbox inside)
+-------------------------------------------------------------------------- */
+.sidebar {
+grid-area: sidebar;
+background-color: var(--color-surface);
+border-right: 1px solid var(--color-border);
+padding: 1.75rem 1.25rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+​.brand {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+font-family: var(--font-heading);
+font-size: 1.35rem;
+font-weight: 700;
+color: var(--color-brand);
+margin-bottom: 2rem;
+}
+​.nav-menu {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+flex-grow: 1;
+}
+​.nav-link {
+display: flex;
+align-items: center;
+gap: 0.85rem;
+padding: 0.75rem 1rem;
+color: var(--color-text-secondary);
+text-decoration: none;
+font-weight: 500;
+border-radius: var(--radius-btn);
+transition: background-color 0.2s ease, color 0.2s ease;
+}
+​.nav-link:hover,
+.nav-link.active {
+background-color: var(--color-surface-hover);
+color: var(--color-brand);
+}
+​.user-profile {
+display: flex;
+align-items: center;
+gap: 0.85rem;
+padding-top: 1.5rem;
+border-top: 1px solid var(--color-border);
+}
+​.avatar {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: var(--color-brand);
+color: #ffffff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+font-size: 0.9rem;
+}
+​.user-info {
+display: flex;
+flex-direction: column;
+}
+​.user-name {
+font-size: 0.9rem;
+font-weight: 600;
+color: var(--color-text-primary);
+}
+​.user-status {
+font-size: 0.75rem;
+color: var(--color-text-secondary);
+}
+​/* --------------------------------------------------------------------------
+5. Header Component (Flexbox inside)
+-------------------------------------------------------------------------- */
+.header {
+grid-area: header;
+background-color: var(--color-surface);
+border-bottom: 1px solid var(--color-border);
+padding: 1rem 2rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1rem;
+}
+​.header-search {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+background-color: var(--color-bg);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-btn);
+padding: 0.5rem 0.85rem;
+width: 320px;
+}
+​.header-search input {
+border: none;
+background: transparent;
+outline: none;
+color: var(--color-text-primary);
+width: 100%;
+font-size: 0.9rem;
+}
+​.header-actions {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+​.icon-btn {
+background: var(--color-bg);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-btn);
+padding: 0.5rem 0.75rem;
+cursor: pointer;
+font-size: 1rem;
+}
+​.btn {
+padding: 0.6rem 1.25rem;
+border-radius: var(--radius-btn);
+font-weight: 600;
+font-size: 0.9rem;
+cursor: pointer;
+border: none;
+transition: background-color 0.2s ease;
+}
+​.btn-primary {
+background-color: var(--color-brand);
+color: #ffffff;
+}
+​.btn-primary:hover {
+background-color: var(--color-brand-hover);
+}
+​/* --------------------------------------------------------------------------
+6. Main Content Area & Cards Grid (CSS Grid + Flexbox)
+-------------------------------------------------------------------------- */
+.main-content {
+grid-area: main;
+padding: 2rem;
+}
+​.page-title {
+margin-bottom: 1.75rem;
+}
+​.page-title h1 {
+font-size: 1.6rem;
+margin-bottom: 0.25rem;
+}
+​.page-title p {
+color: var(--color-text-secondary);
+font-size: 0.95rem;
+}
+​/* Grid layout for cards */
+.cards-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+}
+​/* Card Container (Flexbox inside) /
+.card {
+background-color: var(--color-surface);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-card);
+padding: 1.5rem;
+box-shadow: var(--shadow-sm);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 1rem;
+outline: none;
+/ Card Micro-interaction Animation Setup */
+transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+​/* Requirement 5: Card Micro-interactions (Hover and Keyboard Focus) */
+.card:hover,
+.card:focus-within,
+.card:focus {
+transform: translateY(-4px);
+box-shadow: var(--shadow-lg);
+border-color: var(--color-brand);
+cursor: pointer;
+}
+​.card-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+​.card-icon {
+font-size: 1.5rem;
+padding: 0.5rem;
+border-radius: 10px;
+background-color: var(--color-bg);
+}
+​.card-tag {
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--color-text-secondary);
+}
+​.card-body {
+display: flex;
+flex-direction: column;
+gap: 0.2rem;
+}
+​.amount {
+font-size: 1.6rem;
+font-weight: 700;
+font-family: var(--font-heading);
+color: var(--color-text-primary);
+}
+​.limit {
+font-size: 0.85rem;
+color: var(--color-text-secondary);
+}
+​/* Progress bar inside card */
+.progress-bar {
+width: 100%;
+height: 8px;
+background-color: var(--color-bg);
+border-radius: 999px;
+overflow: hidden;
+}
+​.progress-fill {
+height: 100%;
+background-color: var(--color-brand);
+border-radius: 999px;
+}
+​.progress-fill.full {
+background-color: var(--color-status-warning);
+}
+​.progress-fill.success {
+background-color: var(--color-status-ok);
+}
+​.card-footer {
+display: flex;
+justify-content: space-between;
+font-size: 0.825rem;
+font-weight: 500;
+color: var(--color-text-secondary);
+}
+​.status-ok { color: var(--color-status-ok); }
+.status-warning { color: var(--color-status-warning); }
+.status-success { color: var(--color-status-success); }
+​/* --------------------------------------------------------------------------
+7. Media Query for Responsiveness (< 768px)
+Requirement 4: Collapse layout into single-column layout below 768px
+-------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+.dashboard-container {
+grid-template-columns: 1fr;
+grid-template-rows: auto auto 1fr;
+grid-template-areas:
+"header"
+"sidebar"
+"main";
+}
+​.sidebar {
+border-right: none;
+border-bottom: 1px solid var(--color-border);
+padding: 1rem;
+}
+​.nav-menu {
+flex-direction: row;
+overflow-x: auto;
+padding-bottom: 0.5rem;
+}
+​.nav-link {
+white-space: nowrap;
+}
+​.user-profile {
+display: none; /* Hide profile in compact mobile menu bar */
+}
+​.header {
+flex-direction: column;
+align-items: stretch;
+gap: 0.75rem;
+}
+​.header-search {
+width: 100%;
+}
+​.main-content {
+padding: 1.25rem 1rem;
+}
+​.cards-grid {
+grid-template-columns: 1fr; /* Single column layout for cards */
+}
+}
