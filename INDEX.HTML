@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpendWise - Personal Budget Dashboard</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-container">
+<!-- 1. Sidebar / Navigation Menu -->
+<aside class="sidebar">
+<div class="brand">
+<span class="brand-icon">💳</span>
+<span class="brand-name">SpendWise</span>
+</div>
+​<nav class="nav-menu">
+<a href="#dashboard" class="nav-link active">
+<span class="nav-icon">📊</span>
+<span class="nav-text">Dashboard</span>
+</a>
+<a href="#expenses" class="nav-link">
+<span class="nav-icon">💸</span>
+<span class="nav-text">Expenses</span>
+</a>
+<a href="#analytics" class="nav-link">
+<span class="nav-icon">📈</span>
+<span class="nav-text">Analytics</span>
+</a>
+<a href="#budgets" class="nav-link">
+<span class="nav-icon">🎯</span>
+<span class="nav-text">Budgets</span>
+</a>
+<a href="#settings" class="nav-link">
+<span class="nav-icon">⚙️</span>
+<span class="nav-text">Settings</span>
+</a>
+</nav>
+​<div class="user-profile">
+<div class="avatar">JD</div>
+<div class="user-info">
+<span class="user-name">Jane Doe</span>
+<span class="user-status">Pro Plan</span>
+</div>
+</div>
+</aside>
+​<!-- 2. Header -->
+<header class="header">
+<div class="header-search">
+<span class="search-icon">🔍</span>
+<input type="search" placeholder="Search transactions or categories..." aria-label="Search dashboard">
+</div>
+​<div class="header-actions">
+<button class="icon-btn" aria-label="Notifications">🔔</button>
+<button class="btn btn-primary">+ Add Transaction</button>
+</div>
+</header>
+​<!-- 3. Main Content Area (Category Cards) -->
+<main class="main-content">
+<div class="page-title">
+<h1>Overview & Spending Categories</h1>
+<p>Track and manage your budget breakdown across primary categories.</p>
+</div>
+​<section class="cards-grid">
+<!-- Card 1: Food & Dining -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon food-icon">🍕</div>
+<span class="card-tag">Food & Dining</span>
+</div>
+<div class="card-body">
+<span class="amount">$480.50</span>
+<span class="limit">of $600.00 budget</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 80%;"></div>
+</div>
+<div class="card-footer">
+<span>80% spent</span>
+<span class="status-warning">$119.50 left</span>
+</div>
+</article>
+​<!-- Card 2: Transportation -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon transport-icon">🚗</div>
+<span class="card-tag">Transportation</span>
+</div>
+<div class="card-body">
+<span class="amount">$185.00</span>
+<span class="limit">of $300.00 budget</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 61%;"></div>
+</div>
+<div class="card-footer">
+<span>61% spent</span>
+<span class="status-ok">$115.00 left</span>
+</div>
+</article>
+​<!-- Card 3: Housing & Rent -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon rent-icon">🏠</div>
+<span class="card-tag">Housing & Rent</span>
+</div>
+<div class="card-body">
+<span class="amount">$1,250.00</span>
+<span class="limit">of $1,250.00 budget</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill full" style="width: 100%;"></div>
+</div>
+<div class="card-footer">
+<span>100% spent</span>
+<span class="status-neutral">$0.00 left</span>
+</div>
+</article>
+​<!-- Card 4: Entertainment -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon entertainment-icon">🎬</div>
+<span class="card-tag">Entertainment</span>
+</div>
+<div class="card-body">
+<span class="amount">$92.30</span>
+<span class="limit">of $200.00 budget</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 46%;"></div>
+</div>
+<div class="card-footer">
+<span>46% spent</span>
+<span class="status-ok">$107.70 left</span>
+</div>
+</article>
+​<!-- Card 5: Savings & Investments -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon savings-icon">💎</div>
+<span class="card-tag">Savings & Fund</span>
+</div>
+<div class="card-body">
+<span class="amount">$650.00</span>
+<span class="limit">of $500.00 target</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill success" style="width: 100%;"></div>
+</div>
+<div class="card-footer">
+<span>130% achieved</span>
+<span class="status-success">+$150.00 bonus</span>
+</div>
+</article>
+​<!-- Card 6: Utilities & Bills -->
+<article class="card" tabindex="0">
+<div class="card-header">
+<div class="card-icon utilities-icon">⚡</div>
+<span class="card-tag">Utilities & Bills</span>
+</div>
+<div class="card-body">
+<span class="amount">$210.40</span>
+<span class="limit">of $250.00 budget</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 84%;"></div>
+</div>
+<div class="card-footer">
+<span>84% spent</span>
+<span class="status-warning">$39.60 left</span>
+</div>
+</article>
+</section>
+</main>
+</div>
+</body>
+</html>
